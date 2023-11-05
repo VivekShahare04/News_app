@@ -8,12 +8,15 @@ function reload() {
     window.location.reload();
 }
 
-
+try{
 async function fetchnews(query){
     const res = await fetch(`${url}${query}&apikey=${API_KEY}`);
     const data = await res.json();
     bindData(data.articles);
 }
+}catch(error){
+	console.log('error');}
+
 
 function bindData(articles){
     const cardscontainer =document.getElementById('cards-container');
